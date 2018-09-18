@@ -1,0 +1,24 @@
+<div id="subscribe-form" class="full-width defined-size-card-login">
+  <mat-card>
+    <mat-card-header>
+          <mat-card-title>Subscription</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field class="full-width">
+            <input [(ngModel)]="login" matInput placeholder="Login">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="email" [(ngModel)]="email" matInput placeholder="Email">
+      </mat-form-field>
+        <mat-form-field class="full-width">
+            <input [(ngModel)]="password" type="password" matInput placeholder="Password">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input [(ngModel)]="password_confirmation" type="password" matInput placeholder="Password's configuration">
+      </mat-form-field>
+        <mat-card-actions style="text-align: right">
+            <button mat-button (click)="subscription()"><mat-icon aria-label="Button for subscription">add</mat-icon>Subscribe</button>
+        </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</div>
