@@ -18,6 +18,10 @@ export class TokenPayload {
      * Map for the right
      */
     public rights: { [key: string]: string };
+  /**
+   * UserType.
+   */
+  public userType: string;
     /**
      * [sub connexion login]
      */

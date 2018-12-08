@@ -3,6 +3,8 @@ import * as CryptoJS from 'crypto-js';
 import { Observable } from 'rxjs';
 import { serviceUrl, ServiceUrlNames} from '../utils/urlconfig';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { v4 as uuid } from 'uuid';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -127,21 +129,34 @@ export class AuthenticationService {
   }
   /**
    * Perform an authentication.
-   * @param encryptedHeader encryptedHeader
+   * @param login login
+   * @param password password
    */
-  public authentification(encryptedHeader: string): Observable<Object> {
+  public authentication(login: string, password: string): Observable<Object> {
+    const encryptedHeader: string =
+      this.performEncryption(login + ':' +
+        this.performEncryption(password, environment.login.protocol), 'base64');
     const _headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
-    _headers.append('Authentication', encryptedHeader);
+    _headers.append('Authentication', 'Basic ' + encryptedHeader);
     return this.http
-      .put(serviceUrl(ServiceUrlNames.USER, '/authenticate/' + btoa(encryptedHeader)), null, { headers: _headers });
+      .put(serviceUrl(ServiceUrlNames.USER, '/authenticate/' + btoa('Basic ' + encryptedHeader)), null, { headers: _headers });
   }
 
+  /**
+   * Subscribe for create a account
+   * @param email email
+   * @param password password
+   * @param username username
+   */
   public subscription(email: string, password: string, username: string) {
+    const id = uuid();
     const _headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const passwordEncrypted = this.performEncryption(password, environment.login.protocol);
     const data = {
+      'id': id,
       'login': username,
       'email': email,
-      'password': password,
+      'password': passwordEncrypted,
       'typeUser': 'WEBAPP_USER'
     };
     return this.http.put(serviceUrl(ServiceUrlNames.USER, ''), data, {headers: _headers});

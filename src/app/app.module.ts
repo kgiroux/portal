@@ -2,19 +2,54 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenav, MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule } from '@angular/material';
+import {MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule, MatMenuModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 import { SubscribeComponent } from './subscribe/subscribe.component';
 import { SubscribeModule } from './subscribe/subscribe.module';
+import { DofustuffModule} from './dofustuff/dofustuff.module';
+import { WorksModule} from './works/works.module';
+import {WorksComponent} from './works/works.component';
+import {DofustuffComponent} from './dofustuff/dofustuff.component';
+import { HomeComponent } from './home/home.component';
+import {ProjectsComponent} from './works/projects/projects.component';
+import {AimoveComponent} from './works/aimove/aimove.component';
+import {PersonalRecordComponent} from './personal-record/personal-record.component';
+import {ProjectsComponent as ProjectPersonalRecordComponent} from './personal-record/projects/projects.component';
+import {ResumeComponent} from './personal-record/resume/resume.component';
+import {PersonalRecordModule} from './personal-record/personal-record.module';
+import {AuthenticationGuard} from './authentication.guard';
 const appRoutes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'subscribe', component: SubscribeComponent }
+  { path: 'subscribe', component: SubscribeComponent },
+  { path: 'dofustuff', component: DofustuffComponent, canActivate: [AuthenticationGuard] },
+  { path: 'works', component: WorksComponent, children : [
+      {
+        path: 'projects',
+        component: ProjectsComponent
+      },
+      {
+        path: 'aimove',
+        component : AimoveComponent
+      }
+    ]},
+  {
+    path: 'personal-record',
+    component: PersonalRecordComponent,
+    children : [{
+      path : 'projects',
+      component: ProjectPersonalRecordComponent
+    },
+      {
+        path: 'resume',
+        component: ResumeComponent
+      }]
+  }
+
 ];
 
 export function tokenGetter() {
@@ -23,13 +58,15 @@ export function tokenGetter() {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
-    HttpModule,
     LoginModule,
+    DofustuffModule,
     MatButtonModule,
     MatIconModule,
+    MatMenuModule,
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -49,7 +86,9 @@ export function tokenGetter() {
         ],
         whitelistedDomains: [ 'localhost:8080']
       }
-    })
+    }),
+    WorksModule,
+    PersonalRecordModule
   ],
   providers: [],
   bootstrap: [AppComponent]

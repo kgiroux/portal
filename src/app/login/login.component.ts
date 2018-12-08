@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ErrorService } from '../error/error.service';
 import { Router } from '@angular/router';
+import {TokenPayload} from './tokenpayload';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,6 +24,9 @@ export class LoginComponent implements OnInit {
   set password(password: string) {
     this._password = password;
   }
+  get password(): string{
+    return this._password;
+  }
 
   constructor(
     private loginService: AuthenticationService,
@@ -37,23 +41,33 @@ export class LoginComponent implements OnInit {
    * [checkAuth perform a request for trying to check the login and mdp]
    */
   public checkAuth(): void {
-    const encryptedHeader: string =
-      this.loginService.performEncryption(this.login + ':' +
-      this.loginService.performEncryption(this._password, environment.login.protocol), 'base64');
     const self = this;
-    console.log(encryptedHeader);
-    localStorage.setItem('access_token', 'Basic ' + encryptedHeader);
-    this.loginService.authentification('Basic ' + encryptedHeader).subscribe(
+    this.loginService.authentication(this.login, this.password).subscribe(
       (data) => {
         console.log(data);
+        localStorage.setItem('access_token', data['token']);
+        localStorage.setItem('payLoadContent', this.decodeToken(data['token']).userType);
       },
       (err) => {
         console.error(err);
-        this.errorService.openSnackBar('Impossible d\'effectuer l\'authentification', false, null); },
+        this.errorService.openSnackBar('Impossible d\'effectuer l\'authentication', false, null); },
       () => {
-        self.router.navigate(['/home']);
+        self.router.navigate(['/dofustuff']);
       }
     );
 
+  }
+
+  /**
+   * Decode the token for extracting list of the access.
+   * @param data
+   */
+  private decodeToken(data: string): TokenPayload {
+    const parts = data.split('.');
+    try {
+      return JSON.parse(atob(parts[1]));
+    } catch (err) {
+      throw new Error('Bad token payload encoding');
+    }
   }
 }

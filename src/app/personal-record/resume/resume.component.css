@@ -1,0 +1,19 @@
+.full-width{
+  width: 100%;
+}
+#resume-form{
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin-bottom: 1em;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  flex-direction: column;
+}
+
+.thales-logo{
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/43/Thales.svg');
+  background-size: cover;
+
+}
