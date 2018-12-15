@@ -24,7 +24,6 @@ export class MachineLearningComponent implements OnInit {
         'There is three types of Deep Learning family : supervised, unsupervised, reinforcement',
       ],
       usecase: 'usecase'
-
     }, {
       title: 'Supervised Learning',
       subtitle: 'A type of DeepLearning',
@@ -93,13 +92,24 @@ export class MachineLearningComponent implements OnInit {
       usecase: 'usecase'
     }, {
       title: 'Fully-Connected Layer',
-      subtitle: 'SubTitle',
-      content: ['Content'],
+      subtitle: 'A part of the CNN',
+      content: ['Fully connected layers connect every neuron in one layer to every neuron in another layer.' +
+      'It is in principle the same as the traditional multi-layer perceptron neural network (MLP).'],
       usecase: 'usecase'
-    },{
+    }, {
       title: 'Faster RCNN',
-      subtitle: 'SubTitle',
-      content: ['Content'],
+      subtitle: 'Object detection',
+      content: ['The faster RCNN have two different networks. ' +
+      'One of his network is a RPN for Region Proposal Network and the second is about object detection.',
+      'The RPN is a network that will generate some region. The advantage of the RPN, is instead of performing a selective search ' +
+      'in a image, will divide the picture into small anchors and propose all anchors that will have the probability to contains object. ' +
+      'Anchors plays an important role in this type of network. ' +
+      'The output of the RPN is a set of boxes that will be examined by the classifier and the regressor. ' +
+      'The objectif is to check the occurrence of object on these boxes. RPN predict the possibility that an anchors contains an object, ' +
+      'if it is a background/foreground and will refine the anchors.',
+      'After the RPN, we will have regions with different sizes. We commonly used a ROI pooling (Region of interest). ' +
+      'This will reduce the size of this regions to have a common size. The ROI pooling will split the feature maps into a ' +
+      'fixed number of equal regions. On this regions will be able to apply a Max Pooling algorithm to each region'],
       usecase: 'usecase'
     }, {
       title: 'Mask RCNN',
