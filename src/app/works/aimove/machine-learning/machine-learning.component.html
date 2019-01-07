@@ -19,6 +19,13 @@
             <span *ngIf='topic.usecase !== "usecase"'><b>Use Case</b></span>
             <p *ngIf='topic.usecase !== "usecase"'>{{topic.usecase}}</p>
 
+          <div *ngIf='topic.references.length > 0'>
+            <span><b>References</b></span>
+              <div *ngFor="let reference of topic.references">
+              <p><a target="_blank" rel="noopener noreferrer" href="{{reference.url}}">{{reference.name}}</a> </p>
+              </div>
+          </div>
+
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

@@ -23,7 +23,8 @@ export class MachineLearningComponent implements OnInit {
         'with vector of data that contains data related to : pixels intensity, edges, regions with different shapes.',
         'There is three types of Deep Learning family : supervised, unsupervised, reinforcement',
       ],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Supervised Learning',
       subtitle: 'A type of DeepLearning',
@@ -33,7 +34,9 @@ export class MachineLearningComponent implements OnInit {
       'different family/classes. For doing that we will provide the input, (the images to analyses, ' +
       'and the output (the classes that we would like to used). After that, the algorithm will extract ' +
       'some feature from images, and will be able to classify them.'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
+
     }, {
       title: 'Unsupervised Learning',
       subtitle: 'A type of DeepLearning',
@@ -43,7 +46,8 @@ export class MachineLearningComponent implements OnInit {
       'such commonalities in each new piece of data. Models using unsupervised learning must learn ' +
       'the relationships between elements in a dataset and classify the raw data without help. ' +
       'All models have the same goals, that is to try to find some pattern, hidden structure or feature'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Reinforcement Learning',
       subtitle: 'A type of DeepLearning',
@@ -63,7 +67,8 @@ export class MachineLearningComponent implements OnInit {
       'The reinforcement learning have to allow to the agent to change his "way of thinking" to let him maximise his reward.',
       'This method of reinforcement learning is particularly adapted to the problems where you need a compromised between the ' +
       'reward in a short term, and a reward on long term.'],
-      usecase: 'Task planification, Telecommunication, chess'
+      usecase: 'Task planification, Telecommunication, chess',
+      references : []
     }, {
       title: 'CNN',
       subtitle: 'A class of deep, feed-forward artificial neural networks',
@@ -77,7 +82,8 @@ export class MachineLearningComponent implements OnInit {
       'CNNs use relatively little pre-processing compared to other image classification algorithms. ' +
       'This means that the network learns the filters that in traditional algorithms were hand-engineered. ' +
       'This independence from prior knowledge and human effort in feature design is a major advantage.'],
-      usecase: 'image and video recognition, image classification, medical image analysis'
+      usecase: 'image and video recognition, image classification, medical image analysis',
+      references : []
     }, {
       title: 'Convolution Layer',
       subtitle: 'A part of the CNN',
@@ -88,7 +94,8 @@ export class MachineLearningComponent implements OnInit {
       'on a infinite area, create a new function "f * g"  on this same area,  function that expresses how the shape of ' +
       'one is modified by the other.'],
       usecase: 'probability, statistics, computer vision, natural language processing,' +
-        'image and signal processing, engineering, and differential equations'
+        'image and signal processing, engineering, and differential equations',
+      references : []
     }, {
       title: 'Pooling Layer',
       subtitle: 'A part of the CNN',
@@ -122,7 +129,8 @@ export class MachineLearningComponent implements OnInit {
       '"Region of Interest" pooling (also known as RoI pooling) is a variant of max pooling, in which output size is fixed ' +
       'and input rectangle is a parameter.'
       ],
-      usecase: 'object detection, Fast RCNN, Faster RCNN, MaskRCNN'
+      usecase: 'object detection, Fast RCNN, Faster RCNN, MaskRCNN',
+      references : []
     }, {
       title: 'ReLu',
       subtitle: 'A part of the CNN',
@@ -134,7 +142,8 @@ export class MachineLearningComponent implements OnInit {
       'Other functions are also used to increase non-linearity, for example the saturating hyperbolic tangent f(x)=tanh(x), ' +
       'f(x)=|tanh(x)|, and the sigmoid function sigma (x)=(1+e^{-x})^{-1}. ReLU is often preferred to other functions ' +
       'because it trains the neural network several times faster without a significant penalty to generalization accuracy.'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Fully-Connected Layer',
       subtitle: 'A part of the CNN',
@@ -142,7 +151,8 @@ export class MachineLearningComponent implements OnInit {
       'via fully connected layers. Neurons in a fully connected layer have connections to all activations in the previous layer, ' +
       'as seen in regular (non-convolutional) artificial neural networks. Their activations can thus be computed as an affine ' +
       'transformation, with matrix multiplication followed by a bias offset (vector addition of a learned or fixed bias term).'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Loss Layer',
       subtitle: 'A part of the CNN',
@@ -152,17 +162,25 @@ export class MachineLearningComponent implements OnInit {
      'Softmax loss is used for predicting a single class of K mutually exclusive classes.[nb 3] Sigmoid cross-entropy loss is used ' +
      'for predicting K independent probability values in  [0,1]. Euclidean loss is used for regressing to real-valued ' +
      'labels (-infinity, + infinity ).'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'RCNN',
       subtitle: 'SubTitle',
-      content: ['Content'],
-      usecase: 'usecase'
+      content: ['RCNN is a type of of CNN'],
+      usecase: 'usecase',
+      references : [
+        {
+          name: 'Rich feature hierarchies for accurate object detection and semantic segmentation',
+          url: 'http://arxiv.org/abs/1311.2524'
+        }
+        ]
     }, {
       title: 'Fast RCNN',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Faster RCNN',
       subtitle: 'Object detection',
@@ -177,42 +195,50 @@ export class MachineLearningComponent implements OnInit {
       'After the RPN, we will have regions with different sizes. We commonly used a ROI pooling (Region of interest). ' +
       'This will reduce the size of this regions to have a common size. The ROI pooling will split the feature maps into a ' +
       'fixed number of equal regions. On this regions will be able to apply a Max Pooling algorithm to each region'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Mask RCNN',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'YOLO',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'RNN',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'LSTM',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'GRU',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'HMM',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'DTW',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'KNN',
       subtitle: 'k-Nearest Neighbors',
@@ -225,7 +251,8 @@ export class MachineLearningComponent implements OnInit {
       '' +
       'KNN works really well with smaller datasets if fewer features. ' +
       'It may not perform well on very large datasets with a lot of features since it has to store all that data at hand.'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Logistic Regression',
       subtitle: 'Logistic Regression',
@@ -243,17 +270,20 @@ export class MachineLearningComponent implements OnInit {
       'In the case of logistic regression, the equation a little bit more complex :',
       'y = w[0]*x + w[1]*x + ..... + w[n]*x + b > 0',
       'In this case we have a dataset of n input features.'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Decision Tree',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Random Forest',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'SVM',
       subtitle: 'Support vector machines',
@@ -279,27 +309,32 @@ export class MachineLearningComponent implements OnInit {
       'SVMs might require more expertise compared to simpler algorithms also because of the number of ' +
       'parameters that can be fine-tuned (for complexity, regularization, etc) to control the performance of the algorithm.',
       'Nevertheless, they are often chosen as the go-to choice for machine learning projects by many practitioners.'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Encoder/ Decoder Network',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Bayes Network',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Template / Model/ Neural network',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }, {
       title: 'Attention / Global Attention etc …;',
       subtitle: 'SubTitle',
       content: ['Content'],
-      usecase: 'usecase'
+      usecase: 'usecase',
+      references : []
     }
     ];
 
