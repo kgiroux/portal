@@ -3,6 +3,7 @@
     <mat-grid-tile colspan="1" rowspan="1" *ngFor="let topic of topics">
       <mat-card style="width: 100%; height: 80%; top:2%; margin: 1em;text-align: justify;">
         <mat-card-header>
+          <div mat-card-avatar><mat-icon class="icon-size">help</mat-icon></div>
           <mat-card-title>
             {{topic.title}}
           </mat-card-title>
@@ -11,8 +12,13 @@
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content style="height:80%; overflow-y: auto">
-          <div *ngFor="let paragraph of topic.content"><p>{{paragraph}}</p></div>
-          <p>{{topic.usecase}}</p>
+          <span><b>Description</b></span>
+          <div *ngFor="let paragraph of topic.content">
+            <p>{{paragraph}}</p>
+          </div>
+            <span *ngIf='topic.usecase !== "usecase"'><b>Use Case</b></span>
+            <p *ngIf='topic.usecase !== "usecase"'>{{topic.usecase}}</p>
+
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

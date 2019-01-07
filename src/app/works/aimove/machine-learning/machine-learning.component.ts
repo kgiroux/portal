@@ -83,20 +83,88 @@ export class MachineLearningComponent implements OnInit {
       title: 'Convolution Layer',
       subtitle: 'A part of the CNN',
       content: ['The convolutional layer serves to detect (multiple) patterns in multipe sub-regions ' +
-      'in the input field using receptive fields.'],
-      usecase: 'usecase'
+      'in the input field using receptive fields.',
+      '',
+      'The convolution product, in mathematics "*", is a bilinear computation and an comutation production where two function f and g ' +
+      'on a infinite area, create a new function "f * g"  on this same area,  function that expresses how the shape of ' +
+      'one is modified by the other.'],
+      usecase: 'probability, statistics, computer vision, natural language processing,' +
+        'image and signal processing, engineering, and differential equations'
     }, {
       title: 'Pooling Layer',
       subtitle: 'A part of the CNN',
       content: ['The pooling layer serves to progressively reduce the spatial size of the representation, to reduce the number of ' +
-      'parameters and amount of computation in the network, and hence to also control overfitting.'],
+      'parameters and amount of computation in the network, and hence to also control over-fitting.',
+      'Convolutional networks may include local or global pooling layers, ' +
+      'which combine the outputs of neuron clusters at one layer into a single neuron in the next layer. ' +
+        '',
+      'For example, max pooling uses the maximum value from each of a cluster of neurons at the prior layer. Another example ' +
+      'is average pooling, which uses the average value from each of a cluster of neurons at the prior layer.',
+      'Another important concept of CNNs is pooling, which is a form of non-linear down-sampling. There are several non-linear ' +
+      'functions to implement pooling among which max pooling is the most common. It partitions the input image into a set of ' +
+      'non-overlapping rectangles and, for each such sub-region, outputs the maximum.',
+      '',
+      'Intuitively, the exact location of a feature is less important than its rough location relative to other features. ' +
+      'This is the idea behind the use of pooling in convolutional neural networks. The pooling layer serves to progressively ' +
+      'reduce the spatial size of the representation, to reduce the number of parameters, memory footprint and amount of ' +
+      'computation in the network, and hence to also control overfitting. It is common to periodically insert a pooling layer ' +
+      'between successive convolutional layers in a CNN architecture.[citation needed] The pooling operation provides another ' +
+      'form of translation invariance.',
+      '',
+      'The pooling layer operates independently on every depth slice of the input and resizes it spatially. The most common form ' +
+      'is a pooling layer with filters of size 2×2 applied with a stride of 2 downsamples at every depth slice in the input by 2 ' +
+      'along both width and height, discarding 75% of the activations. In this case, every max operation is over 4 numbers. The ' +
+      'depth dimension remains unchanged.',
+      '',
+      'In addition to max pooling, pooling units can use other functions, such as average pooling or ℓ2-norm pooling. Average ' +
+      'pooling was often used historically but has recently fallen out of favor compared to max pooling, which performs better ' +
+      'in practice.',
+      '',
+      '"Region of Interest" pooling (also known as RoI pooling) is a variant of max pooling, in which output size is fixed ' +
+      'and input rectangle is a parameter.'
+      ],
+      usecase: 'object detection, Fast RCNN, Faster RCNN, MaskRCNN'
+    },{
+      title: 'ReLu',
+      subtitle: 'A part of the CNN',
+      content: ['ReLU is the abbreviation of rectified linear unit, which applies the non-saturating activation function ' +
+      'f(x)=max(0,x). Effectively, it removes negative values from an activation map by setting them to zero. ' +
+      'It increases the nonlinear properties of the decision function and of the overall network without affecting the ' +
+      'receptive fields of the convolution layer.',
+      '',
+      'Other functions are also used to increase non-linearity, for example the saturating hyperbolic tangent f(x)=tanh(x), ' +
+      'f(x)=|tanh(x)|, and the sigmoid function sigma (x)=(1+e^{-x})^{-1}. ReLU is often preferred to other functions ' +
+      'because it trains the neural network several times faster without a significant penalty to generalization accuracy.'],
       usecase: 'usecase'
     }, {
       title: 'Fully-Connected Layer',
+      subtitle: 'A part of the CNN',
+      content: ['Finally, after several convolutional and max pooling layers, the high-level reasoning in the neural network is done ' +
+      'via fully connected layers. Neurons in a fully connected layer have connections to all activations in the previous layer, ' +
+      'as seen in regular (non-convolutional) artificial neural networks. Their activations can thus be computed as an affine ' +
+      'transformation, with matrix multiplication followed by a bias offset (vector addition of a learned or fixed bias term).'],
+      usecase: 'usecase'
+    }, {
+      title: 'Loss Layer',
+      subtitle: 'A part of the CNN',
+      content: ['The "loss layer" specifies how training penalizes the deviation between the predicted (output) and true labels and ' +
+      'is normally the final layer of a neural network. Various loss functions appropriate for different tasks may be used.',
+     '',
+     'Softmax loss is used for predicting a single class of K mutually exclusive classes.[nb 3] Sigmoid cross-entropy loss is used ' +
+     'for predicting K independent probability values in  [0,1]. Euclidean loss is used for regressing to real-valued ' +
+     'labels (-infinity, + infinity ).'],
+      usecase: 'usecase'
+    }, {
+      title: 'RCNN',
       subtitle: 'SubTitle',
       content: ['Content'],
       usecase: 'usecase'
-    },{
+    }, {
+      title: 'Fast RCNN',
+      subtitle: 'SubTitle',
+      content: ['Content'],
+      usecase: 'usecase'
+    }, {
       title: 'Faster RCNN',
       subtitle: 'SubTitle',
       content: ['Content'],
@@ -112,17 +180,17 @@ export class MachineLearningComponent implements OnInit {
       content: ['Content'],
       usecase: 'usecase'
     }, {
-      title: 'GRU',
-      subtitle: 'SubTitle',
-      content: ['Content'],
-      usecase: 'usecase'
-    }, {
       title: 'RNN',
       subtitle: 'SubTitle',
       content: ['Content'],
       usecase: 'usecase'
     }, {
       title: 'LSTM',
+      subtitle: 'SubTitle',
+      content: ['Content'],
+      usecase: 'usecase'
+    }, {
+      title: 'GRU',
       subtitle: 'SubTitle',
       content: ['Content'],
       usecase: 'usecase'
